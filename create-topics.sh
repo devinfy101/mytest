@@ -1,5 +1,4 @@
 #!/bin/bash
-source /etc/bashrc
 
 TOPIC_FILE="topic-definitions.yaml"
 
@@ -16,6 +15,7 @@ for row in $(yq e '.topics | length' $TOPIC_FILE); do
   REPLICAS=$(yq e ".topics[$row].replicationFactor" $TOPIC_FILE)
 
   echo "Creating topic: $NAME"
+  cd /etc/confluent-7.8.0/
   kafka-topics --create --bootstrap-server localhost:9092 \
     --replication-factor $REPLICAS \
     --partitions $PARTITIONS \
