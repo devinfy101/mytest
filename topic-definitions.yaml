@@ -1,4 +1,4 @@
 topics:
-  - name: user-eventss
+  - name: test01
     partitions: 5
     replicationFactor: 1
