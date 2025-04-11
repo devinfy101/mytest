@@ -15,7 +15,7 @@ for row in $(yq e '.topics | length' $TOPIC_FILE); do
   REPLICAS=$(yq e ".topics[$row].replicationFactor" $TOPIC_FILE)
 
   echo "Creating topic: $NAME"
-  kafka-topics.sh --create --bootstrap-server localhost:9092 \
+  kafka-topics --create --bootstrap-server localhost:9092 \
     --replication-factor $REPLICAS \
     --partitions $PARTITIONS \
     --topic $NAME
