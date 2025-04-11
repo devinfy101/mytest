@@ -1,4 +1,5 @@
 #!/bin/bash
+source /etc/bashrc
 
 TOPIC_FILE="topic-definitions.yaml"
 
